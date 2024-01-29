@@ -1,5 +1,5 @@
 import styles from "./BlogList.module.scss";
-import type { Article } from "@/features/types/blog";
+import type { Article } from "@/features/blog/types/blog";
 import BlogItem from "../BlogItem/BlogItem";
 
 type Props = {

@@ -1,18 +1,24 @@
-// import BlogCard from "@/features/blog/components/BlogCard/BlogCard";
-// import BlogImage from "@/features/blog/components/BlogImage/BlogImage";
-// import BlogList from "@/features/blog/components/BlogList/BlogList";
+
 import * as Blog from "@/features/blog/components/Index";
+import { newtClient } from "@/features/libs/newt";
 import React from "react";
 
 const BlogPage = async () => {
-  const posts = await fetch("http://localhost:3000/api/v1/blog/getAllBlogs", {
-    next: { revalidate: 3000 },
+  const { items: blog }: any = await newtClient.getContents({
+    appUid: "blog",
+    modelUid: "article",
+    query: {
+      select: ["_id", "title", "slug", "body", "coverImage", "tags"],
+      order: ["-_priority", "-_sys.customOrder"],
+
+    },
   });
+
+
   return (
     <div>
-      <Blog.BlogImage />
-      <Blog.BlogList />
-      <Blog.BlogCard />
+      <Blog.BlogList blog={blog}></Blog.BlogList>
+
     </div>
   );
 };

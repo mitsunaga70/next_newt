@@ -26,7 +26,7 @@ function BlogItem({ blogItem }: any) {
           <ul className={styles.tag_list}>
             {
               blogItem.tags &&
-              blogItem.tags.map((tag) => {
+              blogItem.tags.map((tag: any) => {
                 return <li className={styles.tag_item}>{tag.name}</li>;
               })
             }
