@@ -3,11 +3,11 @@ import { cache } from 'react'
 import 'server-only'
 
 
-export type Tag =  {
+export type Tag = {
   slug: string
   name: string
 }
-export type Article =  {
+export type Article = {
   _id: string
   _sys: string
   title: string
@@ -31,7 +31,7 @@ export const getArticles = cache(async () => {
     appUid: 'blog',
     modelUid: 'article',
     query: {
-      select: ['_id', 'title', 'slug', 'body'],
+      select: ["_id", "title", "slug", "body", "coverImage", "tags"],
     },
   })
   return items
@@ -46,7 +46,7 @@ export const getArticleBySlug = cache(async (slug: string) => {
       select: ['_id', 'title', 'slug', 'body'],
     },
   })
-  
-  
+
+
   return article
 })
