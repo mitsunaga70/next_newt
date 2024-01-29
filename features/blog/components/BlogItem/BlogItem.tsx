@@ -7,14 +7,14 @@ function BlogItem({ blogItem }: any) {
     <li className={styles.item}>
       <a href={`/blog/${blogItem.slug}`}>
         <figure>
-          <Image
-            src={blogItem.coverImage}
+          <img
+            src={blogItem.coverImage.src}
             width={338 * 2}
             height={225 * 2}
             alt={blogItem.title}
             className="u-pc"
           />
-          <Image
+          <img
             src={blogItem.coverImage}
             width={375}
             height={228}
