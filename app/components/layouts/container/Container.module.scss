@@ -1,0 +1,25 @@
+@import "/app/assets/styles/variables";
+
+$width: (
+  full: 1440,
+  large: 1360,
+  middle: 1080,
+  small: 980,
+  xsmall: 820
+);
+.container {
+  position: relative;
+}
+@each $name, $value in $width {
+  .#{$name} {
+    @include bp(pc) {
+      max-width: $value + px;
+      @include vw(w, $value);
+      margin: auto;
+    }
+    @include bp(sp) {
+      padding: 0 $spGutter;
+      max-width: 100%;
+    }
+  }
+}
