@@ -1,3 +1,4 @@
+
 import Image from 'next/image'
 import styles from './page.module.css'
 import { newtClient } from '@/features/libs/newt';
@@ -8,6 +9,7 @@ import Container from './components/layouts/container/Container';
 
 
 export default async function Home() {
+  'use server'
   const { items: blog }: any = await newtClient.getContents({
     appUid: "blog",
     modelUid: "article",
