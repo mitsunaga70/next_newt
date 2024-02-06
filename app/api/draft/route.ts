@@ -22,5 +22,5 @@ export async function GET(request: Request) {
   draftMode().enable()
 
   // 取得した情報からパスを指定してリダイレクトする
-  redirect(`/articles/${article.slug}`)
+  redirect(`/blog/${article.slug}`)
 }
