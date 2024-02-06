@@ -38,10 +38,9 @@ export default async function Article({ params }: Props) {
   }
 
   return (
-    <main>
+    <main >
       <h1>{article.title}</h1>
       <div dangerouslySetInnerHTML={{ __html: article.body }} />
-
     </main>
   )
 }
