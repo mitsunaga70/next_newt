@@ -18,21 +18,14 @@ export async function generateStaticParams() {
   }))
 }
 
-export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const { isEnabled } = draftMode()
-  const { slug } = params
-  const article = await getArticleBySlug(slug, isEnabled)
 
-  return {
-    title: article?.title,
-    description: '投稿詳細ページです',
-  }
-}
 
 export default async function Article({ params }: Props) {
   const { isEnabled } = draftMode()
   const { slug } = params
-  const article = await getArticleBySlug(slug, isEnabled)
+  const article = await getArticleBySlug(slug, true)
+
+
   if (!article) {
     notFound()
   }
